@@ -1,6 +1,6 @@
 {
   "name": "angular-require",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "use require in angular painless",
   "main": "angular-require.js",
   "scripts": {
