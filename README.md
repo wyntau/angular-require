@@ -1,11 +1,10 @@
 ## angular-require
 use require in angular painless
 
-
 ### Usage
 1. load `angular-require.js` before your app's init function. You can load it
     using require.js or just write in html.
-2. include `ngRequire` in your angular module's dependence.
+2. include `ngRequire` in your angular app's dependence.
 3. Done.
 
 Ater doing above, you can use require to load your modules and dependencies asynchronous.
@@ -38,7 +37,16 @@ or any files.
             'css!css/demo.css'
           ])
         }
-    })
+    });
+
+You can also just list modules's dependencies when define the module like below. Then `require.js`
+will handle them. Compose you have `controllers/demoCtrl.js` file.
+
+    define(['app', 'services/demoService'], function(app){
+      app.controller('demoCtrl', ['$scope', 'demoService', function($scope, demoService){
+        // demoService is available here!
+      }]);
+    });
 
 `requireResolve` is the method you can use to take full use of `$stateProvider`'s
 resolve option. If you want to prepare necessary data before the controller
