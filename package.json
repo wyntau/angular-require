@@ -1,0 +1,28 @@
+{
+  "name": "angular-require",
+  "version": "1.0.0",
+  "description": "use require in angular painless",
+  "main": "angular-require.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Treri/angular-require.git"
+  },
+  "keywords": [
+    "angular",
+    "require"
+  ],
+  "author": "Treri",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Treri/angular-require/issues"
+  },
+  "homepage": "https://github.com/Treri/angular-require",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-uglify": "^0.7.0",
+    "load-grunt-tasks": "^2.0.0"
+  }
+}
