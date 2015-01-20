@@ -44,7 +44,7 @@
   angular.module = function() {
     var args = [].slice.call(arguments);
     var app = module.apply(angular, args);
-    if(args.length < 2 || args[1].indexOf('ngRequire') < 0)
+    if(args.length < 2 || args[1].indexOf('ngRequire') < 0){
       return app;
     }
     return app.config([
