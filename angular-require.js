@@ -1,14 +1,14 @@
 (function() {
   angular.module('ngRequire', [])
     .provider('$require', function() {
-      var inlineCSS = false;
-      var enableInlineCSS = function() {
-        inlineCSS = true;
-      };
-      var requireFile = function(deps) {
-        if (angular.isString(deps)) {
+      var toArray = function(deps){
+        if(angular.isString(deps)){
           deps = [deps];
         }
+        return deps;
+      };
+      var requireFile = function(deps) {
+        deps = toArray(deps);
         return ['$q', '$rootScope', function($q, $rootScope) {
           var deferred = $q.defer();
           require(deps, function() {
@@ -19,20 +19,8 @@
           return deferred.promise;
         }];
       };
-      var requireJS = requireFile;
-      var requireCSS = function(deps) {
-        if (inlineCSS) {
-          return function() {
-            return true;
-          };
-        } else {
-          return requireFile(deps);
-        }
-      };
       var requireResolve = function(deps) {
-        if (angular.isString(deps)) {
-          deps = [deps];
-        }
+        deps = toArray(deps);
         return ['$q', '$rootScope', '$injector', function($q, $rootScope, $injector) {
           var deferred = $q.defer();
           require(deps, function() {
@@ -43,9 +31,9 @@
           return deferred.promise;
         }];
       };
-      this.enableInlineCSS = enableInlineCSS;
-      this.requireJS = requireJS;
-      this.requireCSS = requireCSS;
+      this.requireFile = requireFile;
+      this.requireJS = requireFile;
+      this.requireCSS = requireFile;
       this.requireResolve = requireResolve;
       this.$get = function() {
         return {};
@@ -56,7 +44,7 @@
   angular.module = function() {
     var args = [].slice.call(arguments);
     var app = module.apply(angular, args);
-    if (args[1].indexOf('ngRequire') < 0) {
+    if(args.length < 2 || args[1].indexOf('ngRequire') < 0)
       return app;
     }
     return app.config([
