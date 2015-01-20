@@ -12,9 +12,7 @@
         return ['$q', '$rootScope', function($q, $rootScope) {
           var deferred = $q.defer();
           require(deps, function() {
-            $rootScope.$apply(function() {
-              deferred.resolve();
-            });
+            $rootScope.$apply(deferred.resolve);
           });
           return deferred.promise;
         }];
@@ -24,9 +22,8 @@
         return ['$q', '$rootScope', '$injector', function($q, $rootScope, $injector) {
           var deferred = $q.defer();
           require(deps, function() {
-            $q.all([].slice.call(arguments).map(function(dep) {
-              return $injector.invoke(dep);
-            })).then(deferred.resolve);
+            $q.all([].slice.call(arguments).map($injector.invoke))
+            .then(deferred.resolve, deferred.reject);
           });
           return deferred.promise;
         }];
