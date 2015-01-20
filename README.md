@@ -16,9 +16,9 @@ angular.module('app', ['ngRequire', 'ui.router'])
 ### What's provided by ngRequire
 You can use `$requireProvider` in configBlocks. `$requireProvider` have four methods.
 
+- require
 - requireJS
 - requireCSS
-- requireFile
 - requireResolve
 
 The first three methods are the same actually. You can use them to require JS, CSS

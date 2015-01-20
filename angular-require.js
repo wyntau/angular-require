@@ -34,7 +34,7 @@
           return deferred.promise;
         }];
       };
-      this.requireFile = requireFile;
+      this.require = requireFile;
       this.requireJS = requireFile;
       this.requireCSS = requireFile;
       this.requireResolve = requireResolve;
