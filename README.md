@@ -53,7 +53,7 @@ define(['app', 'services/demoService'], function(app){
 
 `requireResolve` is the method you can use to take full use of `$stateProvider`'s
 resolve option. If you want to prepare necessary data before the controller
-injected in order to prevent page flicking, you can use this method.
+injected in order to prevent page from flicking, you can use this method.
 ```js
 $state.state('demo', {
     url: '/demo',
