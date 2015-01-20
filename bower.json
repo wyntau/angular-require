@@ -1,7 +1,7 @@
 {
   "name": "angular-require",
   "main": "angular-require.js",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "homepage": "https://github.com/Treri/angular-require",
   "authors": [
     "Treri <treri.liu@gmail.com>"

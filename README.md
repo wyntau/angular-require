@@ -55,7 +55,7 @@ define(['app', 'services/demoService'], function(app){
 resolve option. If you want to prepare necessary data before the controller
 injected in order to prevent page from flicking, you can use this method.
 ```js
-$state.state('demo', {
+$stateProvider.state('demo', {
     url: '/demo',
     templateUrl: '/path/to/demo.html',
     controller: 'demoCtrl',
