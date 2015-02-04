@@ -1,6 +1,10 @@
 ## angular-require
 use require in angular painless
 
+### Requirements
+- require.js
+- require-css.js (optional, if you will load css files, you should include it)
+
 ### Usage
 1. load `angular-require.js` before your app's init function. You can load it
     using require.js or just write in html.

@@ -2,7 +2,7 @@
  * angular-require, use require in angular painless.
  * Author: Treri
  * License: MIT
- * Version: 1.0.3
+ * Version: 1.0.4
  */
 (function() {
   angular.module('ngRequire', [])
