@@ -2,7 +2,7 @@
  * angular-require, use require in angular painless.
  * Author: Treri
  * License: MIT
- * Version: 1.0.5
+ * Version: 1.1.0
  */
 (function() {
   angular.module('ngRequire', [])
@@ -25,7 +25,7 @@
       };
       var requireResolve = function(deps) {
         deps = toArray(deps);
-        return ['$q', '$rootScope', '$injector', function($q, $rootScope, $injector) {
+        return ['$q', '$injector', function($q, $injector) {
           var deferred = $q.defer();
           require(deps, function() {
             $q.all([].slice.call(arguments).map($injector.invoke))
