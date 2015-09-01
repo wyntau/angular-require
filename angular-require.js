@@ -34,7 +34,7 @@
       };
       var requireResolve = function(deps) {
         deps = toArray(deps);
-        return ['$q', '$injector', function($q, $injector) {
+        return ['$q', '$rootScope', '$injector', function($q, $rootScope, $injector) {
           var deferred = $q.defer();
           require(deps, function() {
             $q.all([].slice.call(arguments).map($injector.invoke))
