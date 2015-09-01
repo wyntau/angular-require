@@ -2,7 +2,7 @@
  * angular-require, use require in angular painless.
  * Author: Treri
  * License: MIT
- * Version: 1.1.0
+ * Version: 1.2.0
  */
 (function() {
   angular.module('ngRequire', [])
@@ -19,6 +19,12 @@
           var deferred = $q.defer();
           require(deps, function() {
             $rootScope.$apply(deferred.resolve);
+          }, function(error){
+            error.requireModules.forEach(function(id){
+              requirejs.undef(id);
+            });
+            $rootScope.$broadcast('requireError', error);
+            $rootScope.$broadcast('require' + capitalize(error.requireType), error.requireModules);
           });
           return deferred.promise;
         }];
@@ -30,6 +36,12 @@
           require(deps, function() {
             $q.all([].slice.call(arguments).map($injector.invoke))
             .then(deferred.resolve, deferred.reject);
+          }, function(error){
+            error.requireModules.forEach(function(id){
+              requirejs.undef(id);
+            });
+            $rootScope.$broadcast('requireError', error);
+            $rootScope.$broadcast('require' + capitalize(error.requireType), error.requireModules);
           });
           return deferred.promise;
         }];

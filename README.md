@@ -86,5 +86,15 @@ define(['app'], function(){
 });
 ```
 
+### Events provided by ngRequire
+If require load files error, it will fire event `timeout`, `nodefine` or `scripterror`. So you can listener these event in angular `$rootScope`.
+
+All events
+
+- requireError, in the callback, require.js' error object will be passed in. You can get `error.requireType` and `error.requireModules`
+- requireTimeout, in the callback, require.js' `error.requireModules` will be passed in
+- requireNodefine, in the callback, require.js' `error.requireModules` will be passed in
+- requireScripterror, in the callback, require.js' `error.requireModules` will be passed in
+
 ### License
 MIT
