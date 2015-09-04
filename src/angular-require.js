@@ -1,10 +1,3 @@
-/*!
- * angular-require 1.3.0
- * use require in angular painless
- * License: MIT
- * Author: Treri
- * Build: Fri Sep 04 2015 10:13:41 GMT+0800 (CST)
- **/
 (function() {
   angular.module('ngRequire', [])
     .provider('$require', function() {
